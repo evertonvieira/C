@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1462153502 source:/var/www/C/HelloWord/main.c
+	<stdio.h>
+	<stdlib.h>
+
