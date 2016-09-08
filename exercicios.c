@@ -25,16 +25,20 @@ void exercicio3(){
 	float sum, menor, maior, numero;
 	printf("Digite o total de números:\n");
 	scanf("%d", &n);
-	menor = maior = 0;
-	for (i = 0; i < n; i++){
+	for (i = 1; i <= n; i++){
 		scanf("%f", &numero);
+		if (i == 1){
+			maior = menor = numero;
+		}
 		sum += numero;
-
 		//maior numero real
 		if (numero > maior){
 			maior = numero;
 		}else{
-			menor = numero;
+			//menor numero real
+			if (numero < menor){
+				menor = numero;
+			}
 		}
 	}
 
@@ -88,6 +92,16 @@ int fibonacci() {
 	}
 	printf("%d\n", a);
 }
+void troca(){
+	int a, b, *c, temp;
+	scanf("%d", &a);
+	scanf("%d", &b);
+	c = &a;
+	temp = b;
+	b = *c;
+	a = temp;
+	printf("%d %d\n", a, b);
+}
 
 int main (){
 	int num, n;
@@ -110,6 +124,9 @@ int main (){
 			fatorial();
 		case 6:
 			fibonacci();
+		break;
+		case 8:
+			troca();
 		break;
 		default:
 			printf("Exercício inexistente :(\n");
