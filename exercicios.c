@@ -54,10 +54,26 @@ void situation(){
 	char alunos[n];
 	for (i = 0; i < n; i++){
 		scanf("%f", &notas[i]);
-		getchar("%c", &alunos[i]);
+		//getchar("%c", &alunos[i]);
 
 	}
 
+}
+
+//Exercício 5
+int fatorial(){
+	int n, fat, i;
+	printf("Digite o número a encontrar o fatorial:\n");
+	scanf("%d", &n);
+	if (n == 0){
+		return printf("0\n");
+	}else{
+		fat = 1;
+		for (i = 1; i <= n; i++){
+			fat *= i;
+		}
+		printf("%d\n", fat);
+	}
 }
 
 int main (){
@@ -76,6 +92,9 @@ int main (){
 		break;
 		case 4:
 			situation();
+		break;
+		case 5:
+			fatorial();
 		break;
 		default:
 			printf("Exercício inexistente :(\n");
