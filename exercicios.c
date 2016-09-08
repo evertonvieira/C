@@ -92,6 +92,30 @@ int fibonacci() {
 	}
 	printf("%d\n", a);
 }
+
+void jokenpo(){
+	int rodada, i, play1, play1;
+	char jogada1, jogada2;
+
+	scanf("%d", &rodada);
+
+	for (i = 0; i < rodada ; i++){
+		prinf("Jogador 1:\n");
+		scanf("%s", &jogada1);
+		prinf("Jogador 2:\n");
+		scanf("%s", &jogada2);
+
+		if (jogada1 == 'p' || jogada2 == 'd'){
+			play1 +=1;
+		}else if (jogada1 == 'p' || jogada2 == 'd'){
+
+		}
+
+
+	}
+
+}
+
 void troca(){
 	int a, b, *c, temp;
 	scanf("%d", &a);
