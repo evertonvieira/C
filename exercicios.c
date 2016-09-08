@@ -76,8 +76,21 @@ int fatorial(){
 	}
 }
 
+//Exercício 6
+int fibonacci() {
+	int i, n, c, sum;
+	int a, b = 1;
+	scanf("%d", &n);
+	for (i = 0; i < n; i++){
+		c =  a + b;
+		a = b;
+		b = c;
+	}
+	printf("%d\n", a);
+}
+
 int main (){
-	int num;
+	int num, n;
 	printf("Digite o número do exercício:\n");
 	scanf("%d", &num);
 	switch(num){
@@ -95,6 +108,8 @@ int main (){
 		break;
 		case 5:
 			fatorial();
+		case 6:
+			fibonacci();
 		break;
 		default:
 			printf("Exercício inexistente :(\n");
