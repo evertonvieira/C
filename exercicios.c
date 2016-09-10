@@ -17,8 +17,37 @@ int interval(){
 	for(i = a-1; a <= b; a++ ){
 		printf("%d\n", a);
 	}
-
 }
+
+//Exercício 2
+void candidados(){
+	int i, j, votos, voto;
+	int sum0, sum1, sum2 = 0;
+	scanf("%d", &votos);
+	j = 0;
+	for (i = 0; i < votos; i++){
+		scanf("%d", &voto);
+		if (j == 0){
+			sum0 += voto;
+			j++;
+		}else if(j == 1){
+			sum1 += voto;
+			j++;
+		}else{
+			sum2 += voto;
+			j = 0;
+		}
+	}
+	if (sum0 > sum1  && sum0 > sum2){
+		printf("1\n");
+	}else if(sum1 > sum0  && sum1 > sum2){
+		printf("2\n");
+	}else{
+		printf("3\n");
+	}
+}
+
+
 //Exercício 3
 void exercicio3(){
 	int n, i;
@@ -94,25 +123,27 @@ int fibonacci() {
 }
 
 void jokenpo(){
-	int rodada, i, play1, play1;
+	int rodada, i, play1, play2;
 	char jogada1, jogada2;
 
 	scanf("%d", &rodada);
 
 	for (i = 0; i < rodada ; i++){
-		prinf("Jogador 1:\n");
 		scanf("%s", &jogada1);
-		prinf("Jogador 2:\n");
-		scanf("%s", &jogada2);
-
-		if (jogada1 == 'p' || jogada2 == 'd'){
+		scanf("%s",&jogada2);
+		if (jogada1 == 'p' && jogada2 == 'd'){
 			play1 +=1;
-		}else if (jogada1 == 'p' || jogada2 == 'd'){
-
+		}else if (jogada1 == 'p' && jogada2 == 't'){
+			play1 +=1;
+		}else if(jogada1 == 't' && jogada2 == 'p'){
+			play1 +=1;
+		}else{
+			play2 +=1;
 		}
-
-
 	}
+
+	printf("%d \t %d", play1, play2);
+
 
 }
 
@@ -127,6 +158,18 @@ void troca(){
 	printf("%d %d\n", a, b);
 }
 
+void parcelas(){
+	int k, i;
+	float entrada, morti, juros;
+	char mes[50];
+	scanf("%f %f %f %d", &entrada, &morti, &juros, &k);
+	for (i = 0; i < k ; i++){
+
+	}
+
+
+}
+
 int main (){
 	int num, n;
 	printf("Digite o número do exercício:\n");
@@ -137,6 +180,9 @@ int main (){
 		break;
 		case 1:
 			interval();
+		break;
+		case 2:
+			candidados();
 		break;
 		case 3:
 			exercicio3();
@@ -149,8 +195,14 @@ int main (){
 		case 6:
 			fibonacci();
 		break;
+		case 7:
+			jokenpo();
+		break;
 		case 8:
 			troca();
+		break;
+		case 9:
+			parcelas();
 		break;
 		default:
 			printf("Exercício inexistente :(\n");
