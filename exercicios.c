@@ -78,19 +78,21 @@ void exercicio3(){
 }
 
 //Exercício 4
-void situation(){
-	int n, i;
-
+void situation(void){
+	int n, i, k;
 	printf("Digite o total de alunos:\n");
 	scanf("%d", &n);
-	float notas[n];
-	char alunos[n];
-	for (i = 0; i < n; i++){
-		scanf("%f", &notas[i]);
-		//getchar("%c", &alunos[i]);
-
+	char nome[10][50];
+	float notas[50];
+	for (i = 1; i <= n; i++){
+		scanf("%f %[A-Z a-z]", &notas[i], nome[i]);
 	}
-
+	scanf("%d", &k);
+	if (notas[k] >= 7){
+		printf("%s Aprovado\n", nome[k]);
+	}else{
+		printf("%s Reprovado\n", nome[k]);
+	}
 }
 
 //Exercício 5
@@ -112,37 +114,43 @@ int fatorial(){
 //Exercício 6
 int fibonacci() {
 	int i, n, c, sum;
-	int a, b = 1;
+	int a, b;
+	a = b = 1;
 	scanf("%d", &n);
-	for (i = 0; i < n; i++){
+	for (i = 1; i < n; i++){
 		c =  a + b;
 		a = b;
 		b = c;
 	}
 	printf("%d\n", a);
+
 }
+
 
 void jokenpo(){
 	int rodada, i, play1, play2;
 	char jogada1, jogada2;
-
+	play1 = play2 = 0;
 	scanf("%d", &rodada);
-
-	for (i = 0; i < rodada ; i++){
-		scanf("%s", &jogada1);
-		scanf("%s",&jogada2);
-		if (jogada1 == 'p' && jogada2 == 'd'){
-			play1 +=1;
-		}else if (jogada1 == 'p' && jogada2 == 't'){
-			play1 +=1;
-		}else if(jogada1 == 't' && jogada2 == 'p'){
-			play1 +=1;
-		}else{
-			play2 +=1;
-		}
+	while (rodada > 0){
+		scanf("%c %c\n", *jogada1, *jogada2);
+		printf("%c \t %c\n", jogada1, jogada2);
+		rodada--;
 	}
 
-	printf("%d \t %d", play1, play2);
+	//*for (i = 0; i < rodada ; i++){
+		//*scanf("%c %c", &jogada1, &jogada2);
+		//*if (jogada1 == 'p' && jogada2 == 'd'){
+			//*play1 +=1;
+		//*}else if (jogada1 == 'p' && jogada2 == 't'){
+			//*play1 +=1;
+		//*}else if(jogada1 == 't' && jogada2 == 'p'){
+			//*play1 +=1;
+		//*}else{
+			//*play2 +=1;
+		//*}
+	//*}
+	//*printf("%d \t %d", play1, play2);
 
 
 }
@@ -159,12 +167,17 @@ void troca(){
 }
 
 void parcelas(){
+	float r = 0.1304;
 	int k, i;
-	float entrada, morti, juros;
+	float divida, morti, juros;
 	char mes[50];
-	scanf("%f %f %f %d", &entrada, &morti, &juros, &k);
+	scanf("%f %f %f %s %d", &divida, &morti, &juros, mes, &k);
+	//dívida do mês seguinte
+	//D' = D – A*(1+r) + D*r.
+	//parcela seguinte P' = A*(1+r) + D*x*(1+r)
 	for (i = 0; i < k ; i++){
-
+		printf("parcela %.2f\t", morti*(1+r) + divida*juros*(1+r) );
+		printf("divida %.2f\n",  divida - morti*(1+r) + divida*r );
 	}
 
 
