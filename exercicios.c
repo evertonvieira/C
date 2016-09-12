@@ -128,30 +128,48 @@ int fibonacci() {
 
 
 void jokenpo(){
-	int rodada, i, play1, play2;
-	char jogada1, jogada2;
-	play1 = play2 = 0;
-	scanf("%d", &rodada);
-	while (rodada > 0){
-		scanf("%c %c\n", *jogada1, *jogada2);
-		printf("%c \t %c\n", jogada1, jogada2);
+	int rodada, i, j1, j2;
+	char mao1, mao2;
+	j1 = 0;
+	j2 = 0;
+	scanf("%d\n", &rodada);
+	while (rodada >= 0){
+		scanf("%c\n", &mao1);
+		scanf("%c\n", &mao2);
+
+		if (mao1 != mao2){
+      if (mao1 == 'd'){
+				if (mao2 == 'p'){
+					j2 += 1;
+				}else{
+					j1 += 1;
+				}
+			}else if(mao1 == 'p'){
+				if (mao2 == 't'){
+					j2 += 1;
+				}else{
+					j1 += 1;
+				}
+			}else{
+				if (mao2 == 'd'){
+					j2 += 1;
+				}else{
+					j1 += 1;
+				}
+			}
+		}
 		rodada--;
 	}
-
-	//*for (i = 0; i < rodada ; i++){
-		//*scanf("%c %c", &jogada1, &jogada2);
-		//*if (jogada1 == 'p' && jogada2 == 'd'){
-			//*play1 +=1;
-		//*}else if (jogada1 == 'p' && jogada2 == 't'){
-			//*play1 +=1;
-		//*}else if(jogada1 == 't' && jogada2 == 'p'){
-			//*play1 +=1;
-		//*}else{
-			//*play2 +=1;
-		//*}
-	//*}
-	//*printf("%d \t %d", play1, play2);
-
+	printf("%d , %d\n", j1, j2);
+	if(j1 == j2){
+    printf("EMPATE\n");
+	}else{
+    if (j1 > j2){
+			printf("Maria\n");
+    }else{
+			printf("João\n");
+		}
+	}
 
 }
 
@@ -167,17 +185,18 @@ void troca(){
 }
 
 void parcelas(){
-	float r = 0.1304;
+	float r = 0.0957;
 	int k, i;
-	float divida, morti, juros;
+	float divida, morti, juros, D;
 	char mes[50];
 	scanf("%f %f %f %s %d", &divida, &morti, &juros, mes, &k);
 	//dívida do mês seguinte
 	//D' = D – A*(1+r) + D*r.
 	//parcela seguinte P' = A*(1+r) + D*x*(1+r)
 	for (i = 0; i < k ; i++){
+		//D = (divida - morti*(1+r) + divida*r);
 		printf("parcela %.2f\t", morti*(1+r) + divida*juros*(1+r) );
-		printf("divida %.2f\n",  divida - morti*(1+r) + divida*r );
+		//printf("divida %.2f\n", (divida - morti*(1+r) + divida*r));
 	}
 
 
