@@ -22,27 +22,24 @@ int interval(){
 //Exercício 2
 void candidados(){
 	int i, j, votos, voto;
-	int sum0, sum1, sum2 = 0;
+	int sum1, sum2, sum3 = 0;
 	scanf("%d", &votos);
-	j = 0;
 	for (i = 0; i < votos; i++){
 		scanf("%d", &voto);
-		if (j == 0){
-			sum0 += voto;
-			j++;
-		}else if(j == 1){
-			sum1 += voto;
-			j++;
+		if (voto == 1){
+			sum1 += 1;
+		}else if(voto == 2){
+			sum2 += 1;
+		}else if(voto == 3){
+			sum3 += 1;
 		}else{
-			sum2 += voto;
-			j = 0;
 		}
 	}
-	if (sum0 > sum1  && sum0 > sum2){
+	if (sum1 > sum2  && sum1 > sum3){
 		printf("1\n");
-	}else if(sum1 > sum0  && sum1 > sum2){
+	}else if(sum2 > sum1  && sum2 > sum3){
 		printf("2\n");
-	}else{
+	}else if(sum3 > sum1  && sum3 > sum2){
 		printf("3\n");
 	}
 }
