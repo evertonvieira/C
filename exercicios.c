@@ -22,7 +22,8 @@ int interval(){
 //Exercício 2
 void candidados(){
 	int i, j, votos, voto;
-	int sum1, sum2, sum3 = 0;
+	int sum1, sum2, sum3;
+	sum1 = sum2 = sum3 = 0;
 	scanf("%d", &votos);
 	for (i = 0; i < votos; i++){
 		scanf("%d", &voto);
@@ -42,6 +43,7 @@ void candidados(){
 	}else if(sum3 > sum1  && sum3 > sum2){
 		printf("3\n");
 	}
+
 }
 
 
