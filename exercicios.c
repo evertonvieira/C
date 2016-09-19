@@ -186,16 +186,15 @@ void troca(){
 void parcelas(){
 	float r = 0.0957;
 	int k, i;
-	float divida, morti, juros, D;
+	float D, A, J, juros, P, tr;
 	char mes[50];
-	scanf("%f %f %f %s %d", &divida, &morti, &juros, mes, &k);
-	//dívida do mês seguinte
-	//D' = D – A*(1+r) + D*r.
-	//parcela seguinte P' = A*(1+r) + D*x*(1+r)
+	scanf("%f %f %f %s %d", &D, &A, &J, mes, &k);
 	for (i = 0; i < k ; i++){
-		//D = (divida - morti*(1+r) + divida*r);
-		printf("parcela %.2f\t", morti*(1+r) + divida*juros*(1+r) );
-		//printf("divida %.2f\n", (divida - morti*(1+r) + divida*r));
+		juros = D*J;
+		D = D - A;
+		P = juros + A;
+		printf("%.2f\t", P);
+		printf("%.2f\n", D);
 	}
 
 
@@ -203,7 +202,6 @@ void parcelas(){
 
 int main (){
 	int num, n;
-	printf("Digite o número do exercício:\n");
 	scanf("%d", &num);
 	switch(num){
 		case 0:
