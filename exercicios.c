@@ -184,19 +184,34 @@ void troca(){
 }
 
 void parcelas(){
-	float r = 0.0957;
-	int k, i;
-	float D, A, J, juros, P, tr;
+	int k, i, numMes;
+	float A, D, x, P, r;
+	float tarifa[10] = {0.1320, 0.0957, 0.2168, 0.1304, 0.1533, 0.2043, 0.1621, 0.2545, 0.1575};
 	char mes[50];
-	scanf("%f %f %f %s %d", &D, &A, &J, mes, &k);
+	scanf("%f %f %f %s %d", &D, &A, &x, mes, &k);
+	if (strcmp (mes, "janeiro") == 0){
+		numMes = 0;
+	}else if(strcmp (mes, "fevereiro") == 0){
+		numMes = 1;
+	}else if(strcmp (mes, "março") == 0){
+		numMes = 2;
+	}else if(strcmp (mes, "abril") == 0){
+		numMes = 3;
+	}else if(strcmp (mes, "maio") == 0){
+		numMes = 4;
+	}else if(strcmp (mes, "junho") == 0){
+		numMes = 5;
+	}else if(strcmp (mes, "julho") == 0){
+		numMes = 6;
+	}
+
 	for (i = 0; i < k ; i++){
-		juros = D*J;
-		D = D - A;
-		P = juros + A;
+		r = tarifa[numMes++]/100;
+		P =	A*(1+r) + D*x/100*(1+r);
+		D = D - A*(1+r) + D*r;
 		printf("%.2f\t", P);
 		printf("%.2f\n", D);
 	}
-
 
 }
 
