@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+//Aquecimento C/C++
 
 //Exercício 0
 int helloWorld(){
